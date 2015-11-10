@@ -1,4 +1,5 @@
 var express = require('express');
+var path = require('path');
 var router = express.Router();
 // could use one line instead: var router = require('express').Router();
 var tweetBank = require('../tweetBank');
@@ -13,7 +14,7 @@ router.get('/stylesheets/style.css', function(req, res) {
 //router.get('/layout.html', function(req, res){
     console.log("we are here");
     //console.log(req.path);
-    res.sendFile('../public/stylesheets/style.css');
+    res.sendFile(path.join(__dirname, '../public/stylesheets/style.css'));
 });
 
 
