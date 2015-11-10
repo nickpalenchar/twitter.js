@@ -6,7 +6,7 @@ var userTweetNumber = {};
 var add = function(name,text){
   if(userTweetNumber.hasOwnProperty(name)) userTweetNumber[name]++;
   else userTweetNumber[name] = 1;
-  data.push({ name: name, text: text, id: userTweetNumber[name].toString() });
+  data.unshift({ name: name, text: text, id: userTweetNumber[name].toString() });
 };
 
 var list = function() {
