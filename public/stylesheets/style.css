@@ -57,3 +57,16 @@ code {
 .content .by {
   font-weight: bold;
 }
+.tweet-name{
+  font-size: 14px;
+  font-weight: bold;
+}
+#tweet-list{
+  margin: 10px 0;
+  list-style: none;
+}
+.permalink{
+  size: 8px;
+  color: cadetblue;
+  font-family: sans-serif;
+}

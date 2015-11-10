@@ -15,7 +15,7 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+      <li id="tweet-list"><span class="tweet-name"><a href="/users/{{tweet.name}}">{{tweet.name}}</a></span><br/>{{tweet.text}}<br/><span class="permalink"><a href="/users/{{tweet.name}}/tweets/{{tweet.id}}">Permalink</a></span> </li>
       {% endfor %}
       
     </div>

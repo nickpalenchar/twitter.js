@@ -1,9 +1,12 @@
 var _ = require('underscore');
 
 var data = [];
+var userTweetNumber = {};
 
 var add = function(name,text){
-  data.push({ name: name, text: text });
+  if(userTweetNumber.hasOwnProperty(name)) userTweetNumber[name]++;
+  else userTweetNumber[name] = 1;
+  data.push({ name: name, text: text, id: userTweetNumber[name].toString() });
 };
 
 var list = function() {
@@ -32,7 +35,7 @@ var getFakeTweet = function() {
   return "Fullstack Academy is " + randArrayEl(awesome_adj) + "! The instructors are just so " + randArrayEl(awesome_adj) + ". #fullstacklove #codedreams";
 };
 
-for(var i=0; i<10; i++) {
+for(var i=0; i<50; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
 }
 

@@ -9,6 +9,19 @@ router.get('/', function (req, res) {
   res.render( 'index', { title: 'Twitter.js', tweets: tweets } );
 });
 
+router.get('/users/:name', function(req, res){
+  var name = req.params.name;
+  var list = tweetBank.find({name: name});
+  console.log(list);
+  res.render('index', {title: 'Twitter.js', tweets: list});
+})
+router.get('/users/:name/tweets/:id', function(req, res){
+  var name = req.params.name;
+  var id = req.params.id;
+  var list = tweetBank.find({name: name, id: id});
+  console.log(list);
+  res.render('index', {title: 'Tweet from ' + name, tweets: list})
+})
 
 router.get('/stylesheets/style.css', function(req, res) {
 //router.get('/layout.html', function(req, res){
