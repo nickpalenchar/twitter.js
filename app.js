@@ -2,6 +2,7 @@ var chalk = require('chalk');
 var express = require('express');
 var app = express();
 var swig = require('swig');
+var tweetBank = require('./tweetBank');
 
 swig.setDefaults({cache: false});
 
@@ -19,12 +20,9 @@ app.get('/', function(req, res, next){
   // res.send("Hello World!");
   var data = {
     title: "An example",
-    people: [
-      {name: "Gandalf"},
-      {name: "Frodo"},
-      {name: "Hermione"}
-    ]
+    people: tweetBank.list(),
   };
+//  var data = tweetBank.list();
 
   res.render('index', data, function(err, output){
     if(err) throw err;
